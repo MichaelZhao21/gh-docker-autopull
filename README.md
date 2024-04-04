@@ -11,4 +11,4 @@ TODO:
 3. Clone repo and run docker build
 4. Add support for multiple repos/webhooks
 5. Daemonize process
-
+6. [Extra] Header hash check for security
