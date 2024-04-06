@@ -43,7 +43,12 @@ func dockerBuild(config *Config, repoDir string) error {
 }
 
 func dockerComposeBuild(config *Config, repoDir string) error {
-	err := execCmdDir(repoDir, "docker", "compose", "-p", config.Tag, "down")
+	err := execCmdDir(repoDir, "docker", "compose", "-p", config.Tag, "build")
+	if err != nil {
+		return errors.New("Unable to build docker compose image: " + err.Error())
+	}
+
+	err = execCmdDir(repoDir, "docker", "compose", "-p", config.Tag, "down")
 	if err != nil {
 		return errors.New("Unable stop previous compose instance: " + err.Error())
 	}

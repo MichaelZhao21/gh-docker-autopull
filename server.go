@@ -13,6 +13,7 @@ import (
 )
 
 func helloWorld(w http.ResponseWriter, req *http.Request) {
+	logMsg(req, "ping", "")
 	w.Header().Set("Content-Type", "application/json")
 	w.Write([]byte(`{"hello": "world"}`))
 }
