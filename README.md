@@ -48,7 +48,7 @@ Clone this repo. Run:
 go build .
 ```
 
-Move the generated `autopull` file into a different directory. Note that a data file `autopull.data` will be generated in the same directory.
+Move the generated `autopull` file into a different directory. Create a copy of `.env.template` to `.env` and put it in the same directory, filling in the environmental variables. Note that a data file `autopull.data` will be generated in the same directory.
 
 # TOOOOODOOOOOOO LIST
 
