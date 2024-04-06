@@ -1,6 +1,6 @@
 # Github Docker Autopull
 
-This script will listen on a port for a Github repo webhook call. If the specified branch gets updated, the repo gets cloned and a Docker build will be run.
+This script will listen on a port for a Github repo webhook call. If the specified branch gets updated, the repo gets cloned and a Docker build will be run. Keep in mind the repos **must be public**.
 
 Note that the use case of this project is pretty specific. I have a single cloud server (hosted on a [Digital Ocean Droplet](https://www.digitalocean.com/products/droplets)) that has a running Docker daemon on it.
 
@@ -32,14 +32,31 @@ The fields you will need to fill in:
 - `<SERVER_IP>` = Internal IP address of the server (I think u can use the loopback address but not sure)
 - `<PORT>` = port that `gh-autopull` script is running on
 
-You may also want to set up a certificate [using certbot]()
+You may also want to set up a certificate [using certbot](https://certbot.eff.org/instructions).
+
+## Using autopull
+
+### Download
+
+TODO
+
+### Manual Build
+
+Clone this repo. Run:
+
+```
+go build .
+```
+
+Move the generated `autopull` file into a different directory. Note that a data file `autopull.data` will be generated in the same directory.
 
 # TOOOOODOOOOOOO LIST
 
 TODO:
 
-2. Check for correct repo and update event
-3. Clone repo and run docker build
 4. Add support for multiple repos/webhooks
 5. Daemonize process
 6. [Extra] Header hash check for security
+7. [Extra] Add rollback mechanism if the new docker run fails
+8. [Extra] Better (cleaner) logging on stdout
+9. [Extra] Delay deployment if new hook came in
