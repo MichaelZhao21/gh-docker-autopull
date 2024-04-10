@@ -50,6 +50,18 @@ go build .
 
 Move the generated `autopull` file into a different directory. Create a copy of `.env.template` to `.env` and put it in the same directory, filling in the environmental variables. Note that a data file `autopull.data` will be generated in the same directory.
 
+Run the following command to build:
+```
+GOOS=linux CGO_ENABLED=0 go build .
+```
+
+To run it in the background, execute the following:
+```sh
+killall autopull
+./autopull > /tmp/autopull.log 2>&1 &
+disown
+```
+
 # TOOOOODOOOOOOO LIST
 
 TODO:
